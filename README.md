@@ -14,7 +14,8 @@ System Requirements:
   Since this was written in CodeBlocks, and CodeBlocks is a VM that can be installed on any OS, this program can be used with any OS.
 
 Bugs:
-  -Currently when a text file is encrypted some of the text is changed to outside the usual ASCII values and causes a problem when reading the text file.
+  -Currently when a text file is encrypted some of the text is changed to outside the usual ASCII values and causes a problem when reading the text file. It is most likely a problem of ASCII overflow.
   
   -The decrypt choice in the main function must be input twice in order to work.
+  -The Decrypt Function does not work. It may also be a problem with ASCII overflow.
 
