@@ -16,5 +16,5 @@ System Requirements:
 Bugs:
   -Currently when a text file is encrypted some of the text is changed to outside the usual ASCII values and causes a problem when reading the text file.
   
-  -The decrypt choice in the main function does not allow for input.
+  -The decrypt choice in the main function must be input twice in order to work.
 
