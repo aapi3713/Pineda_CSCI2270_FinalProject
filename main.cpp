@@ -19,12 +19,24 @@ int main() {
 	{
 	    Encrypt.menu(); //Calls the basic menu
         getline(cin, value);
+        if(value != "1" && value != "2" && value != "3" && value != "4"){
+            cout<<"Please enter a valid option"<<endl;
+            getline(cin,value);
+        }
         int x = stoi(value);
 		switch(x){
 			case 1:
 			    {
                     cout << "enter the name of the file" << endl;   //asks for user input
-                    getline(cin, fileName);                         //takes name of file and then reads in the file
+                    getline(cin, fileName);
+                    ifstream file;
+                    file.open(fileName);                            //takes name of file and then reads in the file
+                    while(!file.is_open()){                     //input verification
+                        cout<<"file not found. enter the name of the file"<<endl;
+                        getline(cin, fileName);
+                        file.open(fileName);
+                    }
+                    file.close();
                     Encrypt.fileReader(fileName);
                     Encrypt.encryptionFunction();                   //after reading in the file and encrypting the file, it is then exported as a text file
                     //cout << "This is a test" << endl;
@@ -39,12 +51,16 @@ int main() {
                 }
 			case 3:
 			    {
-                    string stringKey;
-                    getline(cin, stringKey);
-                    //cout << "TEST 123" << endl;
-                    int decryptKey = stoi(stringKey);
                     cout << "enter the name of the encrypted file" << endl;  //Asks for the name of the encrypted file
                     getline(cin, fileName);
+                    ifstream file;
+                    file.open(fileName);                            //takes name of file and then reads in the file
+                    while(!file.is_open()){                     //input verification
+                        cout<<"file not found. enter the name of the file"<<endl;
+                        getline(cin, fileName);
+                        file.open(fileName);
+                    }
+                    file.close();
                     Encrypt.fileReader(fileName);                            //reads in the encrypted file
                     Encrypt.decryptionFunction();                            //adds or subtracts the key
                     Encrypt.exportFile();                                    //exports the file

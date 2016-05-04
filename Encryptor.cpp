@@ -57,8 +57,8 @@ void Encryptor::fileReader(string filename){
             istringstream iss(line);
             string temporary;
                 while(iss >> temporary){
-                                            //call fucntion that will take the string temporary and parse through it
-                                            //and put every word  into the linked list
+                                            //call function that will take the string temporary and parse through it
+                                            //and put every word into the linked list
                     LinkedList(temporary);
                 }
         }
@@ -87,6 +87,10 @@ void Encryptor::encryptionFunction(){
 	while (value1 != "2")
 	{
         getline(cin, value1);
+        while(value1 != "1" and value1 != "2"){
+            cout<<"Please enter a valid option"<<endl;
+            getline(cin, value1);
+        }
         int x = stoi(value1);
 		switch(x){
 			case 1:
